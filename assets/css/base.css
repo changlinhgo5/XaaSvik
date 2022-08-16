@@ -1,0 +1,158 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%;
+  line-height: 1.7rem;
+  font-family: "Inter", sans-serif;
+  /* font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; */
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  position: relative;
+  cursor: pointer;
+  border-width: 1px;
+  border-style: solid;
+  text-decoration: none;
+  outline: none;
+  text-align: left;
+  border-radius: 99.99rem;
+  margin-top: 5rem;
+  font-weight: 600;
+  font-size: 1.8rem;
+  line-height: 2.2rem;
+  color: #fff;
+  opacity: 1;
+  transition: all ease 0.3s;
+}
+
+.btn:hover {
+  box-shadow: 5px 5px red,-5px -5px cyan;
+  text-shadow: 3px 0px red,-3px 0px cyan;
+  transition: all ease 0.3s;
+}
+
+.section-img {
+  width: 100%;
+  max-width: 100%;
+  vertical-align: middle;
+  object-fit: contain;
+}
+
+.intro-subheading {
+  color: rgba(5,24,43,.35);
+  font-size: 4.8rem;
+  font-weight: 300;
+  letter-spacing: -0.2rem;
+  line-height: 4.8rem;
+  margin-bottom: 1rem;
+  display: inline-block;
+  position: relative;
+  z-index: 1;
+}
+
+.intro-subheading::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 1rem;
+  left: 2rem;
+  bottom: 0.2rem;
+  background-color: #edeff0;
+  z-index: -1;
+}
+
+.intro-heading {
+  color: #05182b;
+  font-size: 4.8rem;
+  line-height: 5.6rem;
+  letter-spacing: -0.2rem;
+  font-weight: 800;
+}
+
+.intro-content {
+  margin-top: 1.5rem;
+  font-size: 2.2rem;
+  font-weight: normal;
+  line-height: 3.6rem;
+  color: rgba(5,24,43,0.7);
+}
+
+.link-animate-hover {
+  display: inline-block;
+  font-size: 1.8rem;
+  line-height: 3rem;
+  font-weight: bold;
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
+}
+
+.link-animate-hover::before {
+  content: '';
+  display: block;
+  position: absolute;
+  background-color: #7a14ff;
+  left: 0;
+  top: 50%;
+  width: 0;
+  height: 0.1rem;
+  transition: width 0.3s;
+}
+
+.link-animate-hover:hover::before {
+    width: 3rem;
+    transition: all 0.3s linear;
+}
+
+.link-animate-hover:hover 
+.link-animate-text {
+    margin-left: 4rem;
+    transition: 0.3s linear;
+}
+
+.link-animate-text {
+  transition: 0.3s linear;
+}
+
+.contact-input {
+  background-color: #f7f8f8;
+  border-color: #f7f8f8;
+  width: 100%;
+  padding: 2rem 2.5rem;
+  border-style: solid;
+  border-width: 0.1rem;
+  border-radius: 99.99rem;
+  font-size: 1.6rem;
+  line-height: 2.5rem;
+  margin: 0 0 2rem 0;
+}
+
+.contact-input:focus {
+  outline: 0.1rem solid #7a14ff;
+}
+
+.contact-input-textarea {
+  background-color: #f7f8f8;
+  border-color: #f7f8f8;
+  width: 100%;
+  padding: 2rem 2.5rem;
+  border-style: solid;
+  border-width: 0.1rem;
+  border-radius: 2rem;
+  font-size: 1.6rem;
+  line-height: 2.5rem;
+  margin: 0 0 1rem 0;
+}
+
+.contact-input-textarea:focus {
+  outline: 0.1rem solid #7a14ff;
+}
+
