@@ -156,7 +156,6 @@ function handleWhy() {
 
 function handleQuestions() {
   questionsBtns.forEach((questionsBtn) => {
-    // const questionsItem = questionsItems[index];
     questionsBtn.onclick = function () {
       const btnActive = $(".section__questions-container-reason-item.active");
       const parentElementBtn = questionsBtn.parentElement.parentElement;
