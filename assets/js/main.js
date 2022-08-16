@@ -106,32 +106,44 @@ const header = document.querySelector(".header");
 const headerBtn = document.querySelector(".header__btn");
 const headerNavigationList = document.querySelector(".header__navigation-list");
 const mainContent = document.querySelector(".mainContent");
-const headerNavigationLinks = document.querySelectorAll(".header__navigation-link");
-const whyContainerTabsPane = document.querySelectorAll(".section__why-container-tabs-pane");
-const whyContainerTabsLink = document.querySelectorAll(".section__why-container-tabs-link");
-const whyContainerTabsPills = document.querySelectorAll(".section__why-container-tabs-pills");
-const questionsItems = document.querySelectorAll(".section__questions-container-reason-item");
-const questionsBtns = document.querySelectorAll(".section__questions-container-reason-btn");
+const headerNavigationLinks = document.querySelectorAll(
+  ".header__navigation-link"
+);
+const whyContainerTabsPane = document.querySelectorAll(
+  ".section__why-container-tabs-pane"
+);
+const whyContainerTabsLink = document.querySelectorAll(
+  ".section__why-container-tabs-link"
+);
+const whyContainerTabsPills = document.querySelectorAll(
+  ".section__why-container-tabs-pills"
+);
+const questionsItems = document.querySelectorAll(
+  ".section__questions-container-reason-item"
+);
+const questionsBtns = document.querySelectorAll(
+  ".section__questions-container-reason-btn"
+);
 
 function handleMenuNav() {
   headerBtn.addEventListener("click", () => {
     headerNavigationList.classList.toggle("hide");
   });
-  headerNavigationLinks.forEach((item) => {
-    item.addEventListener("click", () => {
-      headerNavigationList.classList.remove("hide");
-    });
-  });
-  window.addEventListener("click", function (e) {
-    if (headerNavigationList.contains(e.target) || headerBtn.contains(e.target)) {
-      // Clicked in box
-    } else {
-      // Clicked outside the box
-      headerNavigationList.classList.remove("hide");
-    }
-  });
 }
 
+headerNavigationLinks.forEach((item) => {
+  item.addEventListener("click", () => {
+    headerNavigationList.classList.remove("hide");
+  });
+});
+window.addEventListener("click", function (e) {
+  if (headerNavigationList.contains(e.target) || headerBtn.contains(e.target)) {
+    // Clicked in box
+  } else {
+    // Clicked outside the box
+    headerNavigationList.classList.remove("hide");
+  }
+});
 
 function handleMenuStick() {
   window.onscroll = function () {
@@ -148,8 +160,12 @@ function handleWhy() {
     const tabPane = whyContainerTabsPane[index];
     const tabLink = whyContainerTabsLink[index];
     tabPill.onclick = function () {
-      $(".section__why-container-tabs-pane.active")[0].classList.remove("active");
-      $(".section__why-container-tabs-link.active")[0].classList.remove("active");
+      $(".section__why-container-tabs-pane.active")[0].classList.remove(
+        "active"
+      );
+      $(".section__why-container-tabs-link.active")[0].classList.remove(
+        "active"
+      );
 
       tabLink.classList.add("active");
       tabPane.classList.add("active");
@@ -161,9 +177,19 @@ function handleQuestions() {
   questionsBtns.forEach((questionsBtn, index) => {
     const questionsItem = questionsItems[index];
     questionsBtn.onclick = function () {
-      $(".section__questions-container-reason-item.active")[0].classList.remove("active");
+      const btnActive = $(".section__questions-container-reason-item.active");
 
-      questionsItem.classList.add("active");
+      const parentElementBtn = questionsBtn.parentElement.parentElement;
+
+      if (Array.from(parentElementBtn.classList).includes("active")) {
+        parentElementBtn.classList.remove("active");
+      } else {
+        if (btnActive.length > 0) {
+          btnActive[0].classList.remove("active");
+        }
+        parentElementBtn.classList.add("active");
+      }
+      // questionsItem.classList.add("active");
     };
   });
 }
