@@ -15,10 +15,6 @@
     display: none;
   }
 
-  /* .header {
-        overflow: hidden;
-    } */
-
   .header__global.wide {
     width: 100%;
   }
@@ -44,7 +40,7 @@
 
   .header__navigation-list.hide {
     display: inline-block;
-    height: 405px;
+    height: 40.5rem;
     transition: all 0.3s ease;
   }
 
