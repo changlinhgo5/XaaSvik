@@ -93,12 +93,9 @@ $(window).scroll(function () {
 });
 $("#return-to-top").click(function () {
   // When arrow is clicked
-  $("body,html").animate(
-    {
+  $("body,html").animate({
       scrollTop: 0, // Scroll to top of body
-    },
-    0
-  );
+    }, 0);
 });
 
 // header button
@@ -106,24 +103,12 @@ const header = document.querySelector(".header");
 const headerBtn = document.querySelector(".header__btn");
 const headerNavigationList = document.querySelector(".header__navigation-list");
 const mainContent = document.querySelector(".mainContent");
-const headerNavigationLinks = document.querySelectorAll(
-  ".header__navigation-link"
-);
-const whyContainerTabsPane = document.querySelectorAll(
-  ".section__why-container-tabs-pane"
-);
-const whyContainerTabsLink = document.querySelectorAll(
-  ".section__why-container-tabs-link"
-);
-const whyContainerTabsPills = document.querySelectorAll(
-  ".section__why-container-tabs-pills"
-);
-const questionsItems = document.querySelectorAll(
-  ".section__questions-container-reason-item"
-);
-const questionsBtns = document.querySelectorAll(
-  ".section__questions-container-reason-btn"
-);
+const headerNavigationLinks = document.querySelectorAll(".header__navigation-link");
+const whyContainerTabsPane = document.querySelectorAll(".section__why-container-tabs-pane");
+const whyContainerTabsLink = document.querySelectorAll(".section__why-container-tabs-link");
+const whyContainerTabsPills = document.querySelectorAll(".section__why-container-tabs-pills");
+const questionsItems = document.querySelectorAll(".section__questions-container-reason-item");
+const questionsBtns = document.querySelectorAll(".section__questions-container-reason-btn");
 
 function handleMenuNav() {
   headerBtn.addEventListener("click", () => {
@@ -160,12 +145,8 @@ function handleWhy() {
     const tabPane = whyContainerTabsPane[index];
     const tabLink = whyContainerTabsLink[index];
     tabPill.onclick = function () {
-      $(".section__why-container-tabs-pane.active")[0].classList.remove(
-        "active"
-      );
-      $(".section__why-container-tabs-link.active")[0].classList.remove(
-        "active"
-      );
+      $(".section__why-container-tabs-pane.active")[0].classList.remove("active");
+      $(".section__why-container-tabs-link.active")[0].classList.remove("active");
 
       tabLink.classList.add("active");
       tabPane.classList.add("active");
@@ -174,11 +155,10 @@ function handleWhy() {
 }
 
 function handleQuestions() {
-  questionsBtns.forEach((questionsBtn, index) => {
-    const questionsItem = questionsItems[index];
+  questionsBtns.forEach((questionsBtn) => {
+    // const questionsItem = questionsItems[index];
     questionsBtn.onclick = function () {
       const btnActive = $(".section__questions-container-reason-item.active");
-
       const parentElementBtn = questionsBtn.parentElement.parentElement;
 
       if (Array.from(parentElementBtn.classList).includes("active")) {
@@ -189,7 +169,6 @@ function handleQuestions() {
         }
         parentElementBtn.classList.add("active");
       }
-      // questionsItem.classList.add("active");
     };
   });
 }
