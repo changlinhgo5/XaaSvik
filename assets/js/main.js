@@ -1,8 +1,8 @@
 // load page
-$(window).on("load", function () {
-  $(".loader").delay(1000).fadeOut("lows");
-  $("html, body").animate({ scrollTop: $("#home").offset().top }, 0);
-});
+// $(window).on("load", function () {
+//   $(".loader").delay(1000).fadeOut("lows");
+//   $("html, body").animate({ scrollTop: $("#home").offset().top }, 0);
+// });
 
 // slick slider section__home headline
 $(document).ready(function () {
@@ -74,16 +74,31 @@ $(document).ready(function () {
   });
 });
 
-// number counter
-$(document).ready(function () {
-  $(".section__results-container-num-count-number").counterUp({
-    delay: 10,
-    time: 1500,
-  });
-});
-
-// arrow to top
+let check = true;
 $(window).scroll(function () {
+  const offsetQuestions =
+    $(".section__results-container-num-count-number")[1].offsetParent
+      .offsetTop -
+    $(".section__results-container-num-count-number")[1].parentElement
+      .parentElement.clientHeight;
+
+  // handle counter up
+  if ($(this).scrollTop() >= offsetQuestions && check === true) {
+    check = false;
+    const counts = $(".section__results-container-num-count-number");
+    for (let i = 0; i < counts.length; i++) {
+      const stop = counts[i].innerHTML;
+      let countss = setInterval(updated);
+      let upto = 0;
+      function updated() {
+        counts[i].innerHTML = ++upto;
+
+        if (upto == stop) {
+          clearInterval(countss);
+        }
+      }
+    }
+  }
   if ($(this).scrollTop() >= 700) {
     // If page is scrolled more than 600px
     $("#return-to-top").fadeIn(100); // Fade in the arrow
