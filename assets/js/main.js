@@ -1,8 +1,8 @@
 // load page
-// $(window).on("load", function () {
-//   $(".loader").delay(1000).fadeOut("lows");
-//   $("html, body").animate({ scrollTop: $("#home").offset().top }, 0);
-// });
+$(window).on("load", function () {
+  $(".loader").delay(1000).fadeOut("lows");
+  $("html, body").animate({ scrollTop: $("#home").offset().top }, 0);
+});
 
 // slick slider section__home headline
 $(document).ready(function () {
