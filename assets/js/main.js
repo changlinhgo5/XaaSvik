@@ -19,7 +19,7 @@ $(document).ready(function () {
   });
 });
 
-// slick slider section__home slick slider
+// slick slider section__home logo
 $(document).ready(function () {
   $(".section__home-container-slick-list").slick({
     slidesToShow: 5,
@@ -46,7 +46,7 @@ $(document).ready(function () {
   });
 });
 
-// slick slider section__reviews
+// slick slider section__reviews commit
 $(document).ready(function () {
   $(".section__reviews-container-slick-list").slick({
     slidesToShow: 3,
@@ -75,26 +75,48 @@ $(document).ready(function () {
 });
 
 // number counter
-$(document).ready(function () {
-  $(".section__results-container-num-count-number").counterUp({
-    delay: 10,
-    time: 1500,
-  });
+// $(document).ready(function () {
+//   $(".section__results-container-num-count-number").counterUp({
+//     delay: 10,
+//     time: 1500,
+//   });
+// });
+let check = true;
+$(window).scroll(function () {
+  const offsetQuestions =
+    $(".section__results-container-num-count-number")[1].offsetParent.offsetTop -
+    $(".section__results-container-num-count-number")[1].parentElement.parentElement.clientHeight;
+
+  // handle counter up
+  if ($(this).scrollTop() >= offsetQuestions && check === true) {
+    check = false;
+    const counts = $(".section__results-container-num-count-number");
+    for (let i = 0; i < counts.length; i++) {
+      const stop = counts[i].innerHTML;
+      let countss = setInterval(updated);
+      let upto = 0;
+      function updated() {
+        counts[i].innerHTML = ++upto;
+
+        if (upto == stop) {
+          clearInterval(countss);
+        }
+      }
+    }
+  }
 });
 
 // arrow to top
 $(window).scroll(function () {
   if ($(this).scrollTop() >= 700) {
-    // If page is scrolled more than 600px
-    $("#return-to-top").fadeIn(100); // Fade in the arrow
+    $("#return-to-top").fadeIn(100);
   } else {
-    $("#return-to-top").fadeOut(300); // Else fade out the arrow
+    $("#return-to-top").fadeOut(300);
   }
 });
 $("#return-to-top").click(function () {
-  // When arrow is clicked
   $("body,html").animate({
-      scrollTop: 0, // Scroll to top of body
+      scrollTop: 0,
     }, 0);
 });
 
@@ -102,7 +124,6 @@ $("#return-to-top").click(function () {
 const header = document.querySelector(".header");
 const headerBtn = document.querySelector(".header__btn");
 const headerNavigationList = document.querySelector(".header__navigation-list");
-const mainContent = document.querySelector(".mainContent");
 const headerNavigationLinks = document.querySelectorAll(".header__navigation-link");
 const whyContainerTabsPane = document.querySelectorAll(".section__why-container-tabs-pane");
 const whyContainerTabsLink = document.querySelectorAll(".section__why-container-tabs-link");
@@ -128,7 +149,6 @@ function handleMenuNav() {
     }
   });
 }
-
 
 function handleMenuStick() {
   window.onscroll = function () {
